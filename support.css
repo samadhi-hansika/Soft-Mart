@@ -1,0 +1,98 @@
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0d1f;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  background: rgba(0,0,0,0.6);
+}
+.navbar .logo { font-size:1.5rem; font-weight:bold; }
+.navbar nav a {
+  margin: 0 1rem;
+  color:#ddd;
+  text-decoration:none;
+}
+.navbar nav a:hover, .navbar nav a.active { color:#fff; }
+
+/* Contact Section (smaller size) */
+.contact-section {
+  max-width: 500px;   /* smaller width */
+  margin: 4rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  text-align: left;
+}
+.contact-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+.contact-section p {
+  margin-bottom: 1.2rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.contact-form label {
+  font-size: 0.85rem;
+  color: #eee;
+}
+.contact-form input, 
+.contact-form textarea {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 0.9rem;
+}
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  background: rgba(255,255,255,0.2);
+  outline: none;
+}
+
+/* Button */
+.btn {
+  display:inline-block;
+  padding:0.6rem 1.2rem;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:0.9rem;
+  margin-top: 0.5rem;
+  border:none;
+  cursor:pointer;
+}
+.btn.primary { background:linear-gradient(90deg,#ff5cf4,#ff9a9e); color:white; }
+.btn:hover { opacity:0.9; }
+
+/* Support Info */
+.support-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.support-info h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.support-info p { margin: 0.2rem 0; text-align: center; }

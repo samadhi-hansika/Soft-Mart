@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoftMart – Profile</title>
+  <link rel="stylesheet" href="prof.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">SoftMart</div>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="category.html">Categories</a>
+      <a href="cart.html">Cart</a>
+      <a href="profile.html">Profile</a>
+      <a href="support.html">Support</a> 
+    </nav>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-hero">
+    <div class="profile-card">
+      <div class="avatar-wrap">
+        <img id="avatar" src="assets/default-avatar.png" alt="User Avatar">
+        <label for="avatarUpload" class="upload-btn">Change Photo</label>
+        <input type="file" id="avatarUpload" accept="image/*" style="display:none;">
+      </div>
+      <h2 id="username">John Doe</h2>
+      <p id="useremail">johndoe@example.com</p>
+      <a href="settings.html" class="btn secondary">Edit Profile</a>
+    </div>
+  </section>
+
+  <!-- Purchase History -->
+  <section class="purchases">
+    <h2>My Purchases</h2>
+    <div class="purchase-grid">
+      <div class="purchase-card">
+        <h3>Social Networking App</h3>
+        <p>License: Commercial</p>
+        <p>Purchased: 25 Sep 2025</p>
+        <a href="#" class="btn primary">View License</a>
+      </div>
+      <div class="purchase-card">
+        <h3>E-commerce Marketplace</h3>
+        <p>License: Personal</p>
+        <p>Purchased: 18 Sep 2025</p>
+        <a href="#" class="btn primary">View License</a>
+      </div>
+      <!-- Add more purchases dynamically -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 SoftMart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Avatar upload preview
+    const avatarUpload = document.getElementById('avatarUpload');
+    const avatar = document.getElementById('avatar');
+
+    avatarUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if(file){
+        avatar.src = URL.createObjectURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

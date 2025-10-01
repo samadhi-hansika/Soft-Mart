@@ -1,0 +1,52 @@
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background:#0b0d1f;
+  color:#fff;
+  line-height:1.6;
+}
+
+/* Navbar */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  background: rgba(0,0,0,0.6);
+}
+.navbar .logo { font-size:1.5rem; font-weight:bold; }
+.navbar nav a {
+  margin: 0 1rem;
+  color:#ddd;
+  text-decoration:none;
+}
+.navbar nav a:hover, .navbar nav a.active { color:#fff; }
+
+/* Legal Sections */
+.legal-section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+.legal-section h2 {
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:0.5rem;
+}
+.legal-section .updated {
+  text-align:center;
+  margin-bottom:2rem;
+  font-size:0.9rem;
+  color:#ccc;
+}
+.legal-section h3 {
+  margin-top:1.5rem;
+  color:#ff9a9e;
+}
+.legal-section p {
+  margin-top:0.5rem;
+  color:#ddd;
+  font-size:0.95rem;
+}
