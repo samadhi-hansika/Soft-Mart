@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoftMart – FAQ</title>
+  <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">SoftMart</div>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="subtitle">Here are some common questions and answers.</p>
+
+    <div class="faq-container">
+      <!-- Item 1 -->
+      <div class="faq-item">
+        <button class="faq-question">What is SoftMart?</button>
+        <div class="faq-answer">
+          <p>SoftMart is an online marketplace for buying and selling app blueprints, making it easier for developers and businesses to launch apps faster.</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="faq-item">
+        <button class="faq-question">How do I purchase a blueprint?</button>
+        <div class="faq-answer">
+          <p>You can browse categories, select a blueprint, add it to your cart, and securely checkout using PayHere or Stripe.</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="faq-item">
+        <button class="faq-question">Can I sell my own blueprints?</button>
+        <div class="faq-answer">
+          <p>Yes! Simply sign up as a seller, upload your blueprint files, set pricing, and start earning from your projects.</p>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept?</button>
+        <div class="faq-answer">
+          <p>We currently accept payments via Stripe and PayHere for Sri Lankan users.</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="faq-item">
+        <button class="faq-question">How can I contact support?</button>
+        <div class="faq-answer">
+          <p>You can reach out through our Contact Support page, or email us at <strong>support@softmart.com</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Accordion functionality
+    const questions = document.querySelectorAll(".faq-question");
+    questions.forEach(q => {
+      q.addEventListener("click", () => {
+        q.classList.toggle("active");
+        const answer = q.nextElementSibling;
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>
