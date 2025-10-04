@@ -3,70 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Profile – SoftMart</title>
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="css/profile.css">
-  <script src="profile.js" defer></script>
-
+  <title>SoftMart – Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <link rel="stylesheet" href="profile.css">
-  <header class="profile-header">
-   
-      <div class="profile-section">
-    <div class="avatar-container">
-      <!-- Profile Picture -->
-      <div class="avatar-box">
-        <div class="avatar-circle">+</div>
-        <div class="avatar-label">Profile Picture</div>
-      </div>
-      <!-- Avatar -->
-      <div class="avatar-box">
-        <div class="avatar-circle">+</div>
-        <div class="avatar-label">Avatar</div>
-      </div>
-    </div>
 
-    <a href="#" class="edit-link">Edit Picture or Avatar</a>
-  
-
-<!-- Edit link -->
-    <div class="intro">
-      <h1 id="greeting">Hi User</h1>
-      <p id="bio">
-        Welcome to your SoftMart profile. Showcase your skills, sell your software,
-        or explore products from other creators.
-      </p>
-    </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">SoftMart</div>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="category.html">Categories</a>
+      <a href="cart.html">Cart</a>
+      <a href="profile.html" class="active">Profile</a>
+      <a href="support.html">Support</a> 
+    </nav>
   </header>
 
-  
-  <section class="experience-section">
-    <div class="column">
-      <h3>About</h3>
-      <p id="aboutText">
-        Add a short description about yourself or your business here.
-      </p>
-    </div>
+  <!-- Profile Banner -->
+  <section class="profile-banner">
+    <div class="cover-photo"></div>
 
-    <div class="column">
-      <h3>Contact</h3>
-      <ul>
-        <li>Email: <span id="email">user@example.com</span></li>
-        <li>Website: <a id="website" href="#" target="_blank">yourwebsite.com</a></li>
-      </ul>
+    <!-- Main Profile Circle -->
+    <div class="profile-photo-wrap">
+      <div class="profile-photo-circle">
+        <img id="profilePhoto" src="user-icon.jpeg" alt="Profile Photo">
+        <label for="profileUpload" class="change-btn">Change Photo</label>
+        <input type="file" id="profileUpload" accept="image/*" style="display:none;">
+      </div>
+
+      <!-- Avatar Circle -->
+      <div class="avatar-circle-wrap">
+        <div class="avatar-circle">
+          <img id="avatarImg" src="assets/default-avatar.png" alt="Avatar">
+          <label for="avatarUpload" class="avatar-change-btn">Change Avatar</label>
+          <input type="file" id="avatarUpload" accept="image/*" style="display:none;">
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Projects showcase -->
+  <!-- Profile Info -->
+  <section class="profile-info">
+    <h2 id="username">John Doe</h2>
+    <p id="useremail">johndoe@example.com</p>
+
+    <div class="profile-actions">
+      <a href="settings.html" class="btn secondary">Edit Profile</a>
+      <a href="#" class="btn primary">Message</a>
+      <a href="#" class="btn primary">Follow</a>
+    </div>
+  </section>
+
+  <!-- Purchases Section -->
+  <section class="purchases">
+    <h3>Recent Purchases</h3>
+    <div class="purchase-list" id="purchaseList">
+      <!-- Purchases will be dynamically added here -->
+    </div>
+  </section>
+
+  <!-- Projects Section -->
   <section class="projects">
-    <h2>Your Projects</h2>
-    <div id="projectList" class="project-grid">
-      <!-- Project cards will be inserted here -->
+    <h3>My Projects</h3>
+    <div class="project-grid" id="projectGrid">
+      <!-- Projects will be dynamically added here -->
     </div>
-    <button id="addProject" class="primary-btn">Add Project</button>
+
+    <!-- Add Project Form -->
+    <div class="add-project">
+      <input type="text" id="newProjectName" placeholder="Project Name">
+      <select id="newProjectStatus">
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+      <button id="addProjectBtn" class="btn primary">Add Project</button>
+    </div>
   </section>
-<link rel="stylesheet" href="profile.css">
-<script src="profile.js"></script>
+
+  <footer class="footer">
+    <p>&copy; 2025 SoftMart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Profile Photo Change
+    const profileUpload = document.getElementById('profileUpload');
+    const profilePhoto = document.getElementById('profilePhoto');
+    profileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if(file){
+        profilePhoto.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Avatar Change
+    const avatarUpload = document.getElementById('avatarUpload');
+    const avatarImg = document.getElementById('avatarImg');
+    avatarUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if(file){
+        avatarImg.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Purchases Data
+    const purchases = [
+      {name: "UI Design Kit", date: "01 Oct 2025", price: "$29.99"},
+      {name: "Marketing Dashboard Template", date: "25 Sep 2025", price: "$19.00"},
+      {name: "SoftMart Premium Membership", date: "15 Sep 2025", price: "$99.00"}
+    ];
+
+    const purchaseList = document.getElementById('purchaseList');
+    purchases.forEach(p => {
+      const div = document.createElement('div');
+      div.className = 'purchase-item';
+      div.innerHTML = `
+        <h4>${p.name}</h4>
+        <p>Purchased on: <span>${p.date}</span></p>
+        <span class="price">${p.price}</span>
+      `;
+      purchaseList.appendChild(div);
+    });
+
+    // Projects Data
+    let projects = [
+      {name: "E-commerce App UI", status: "In Progress"},
+      {name: "Portfolio Website", status: "Completed"},
+      {name: "Marketing Campaign", status: "Pending"}
+    ];
+
+    const projectGrid = document.getElementById('projectGrid');
+
+    function displayProjects(){
+      projectGrid.innerHTML = '';
+      projects.forEach(proj => {
+        const div = document.createElement('div');
+        div.className = 'project-card';
+        div.innerHTML = `
+          <h4>${proj.name}</h4>
+          <p>Status: <span>${proj.status}</span></p>
+        `;
+        projectGrid.appendChild(div);
+      });
+    }
+
+    displayProjects();
+
+    // Add New Project
+    const addProjectBtn = document.getElementById('addProjectBtn');
+    addProjectBtn.addEventListener('click', () => {
+      const name = document.getElementById('newProjectName').value.trim();
+      const status = document.getElementById('newProjectStatus').value;
+      if(name){
+        projects.push({name, status});
+        displayProjects();
+        document.getElementById('newProjectName').value = '';
+      }
+    });
+  </script>
+
 </body>
 </html>

@@ -68,13 +68,17 @@
   </section>
 
   <script>
-    // Accordion functionality
+    // Accordion functionality with smooth toggle
     const questions = document.querySelectorAll(".faq-question");
     questions.forEach(q => {
       q.addEventListener("click", () => {
         q.classList.toggle("active");
         const answer = q.nextElementSibling;
-        answer.style.display = answer.style.display === "block" ? "none" : "block";
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
       });
     });
   </script>
