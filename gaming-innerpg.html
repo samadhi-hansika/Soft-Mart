@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDU Project Overview</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="gaming-innerpg.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">
+    <img src="logo.png" alt="Logo">
+    <div class="brand-name">Gaming Projects</div>
+  </div>
+  <nav class="links">
+    <a href="index.html">Home</a>
+    <a href="#uploads">Uploads</a>
+    <a href="#process">Process</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  
+ </header>
+
+<section class="hero">
+  <span class="badge">Gaming · Project Overview</span>
+  <h1 class="title-xl"><strong>Neon</strong> Gaming Project Hub</h1>
+  <p class="subtitle">Centralize your game dev resources in one place. Upload source code, design assets, and docs with a drag‑and‑drop interface and keep your team synced.</p>
+  <a class="cta" href="#uploads">Make it happen</a>
+</section>
+
+<div class="container" id="uploads">
+  <div class="grid">
+    <div class="card">
+      <div class="card-inner">
+        <h3>Game Code</h3>
+        <p>Upload compressed archives of your engine or gameplay code.</p>
+        <label class="drop" data-area="code">
+          <input type="file" multiple accept=".zip,.rar,.7z,.tar,.gz,.unitypackage" />
+          <div><strong>Drag & drop</strong> your files here or click to browse</div>
+          <div class="hint tiny">Accepted: ZIP, RAR, 7Z, TAR, GZ, UnityPackage</div>
+        </label>
+        <div class="files" id="files-code"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <h3>Docs & Specs</h3>
+        <p>Share GDDs, technical docs, sprint plans, and pitch decks.</p>
+        <label class="drop" data-area="docs">
+          <input type="file" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.md,.txt" />
+          <div><strong>Drag & drop</strong> documents here or click to upload</div>
+          <div class="hint tiny">Accepted: PDF, DOC(X), PPT(X), MD, TXT</div>
+        </label>
+        <div class="files" id="files-docs"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <h3>Art & Assets</h3>
+        <p>Upload concept art, UI, sprites, models, audio, and VFX.</p>
+        <label class="drop" data-area="design">
+          <input type="file" multiple accept=".png,.jpg,.jpeg,.svg,.gif,.mp3,.wav,.ogg,.mp4,.webm,.fbx,.obj,.blend,.psd,.ai,.zip" />
+          <div><strong>Drag & drop</strong> assets here or click to choose</div>
+          <div class="hint tiny">Accepted: PNG, JPG, SVG, GIF, MP3/WAV/OGG, MP4/WEBM, FBX/OBJ/BLEND, PSD/AI, ZIP</div>
+        </label>
+        <div class="files" id="files-design"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="tiny" style="margin-top:12px">Uploads are stored locally for preview in this template. Connect to your backend to persist files.</p>
+</div>
+
+<section class="timeline" id="process">
+  <h2>Ship games, faster</h2>
+  <p class="desc">A simple loop for indie and AAA teams alike.</p>
+  <ol class="steps">
+    <li class="step">
+      <div class="desc"><strong>1. Subscribe</strong><br>Get access to the shared workspace and communication channels.</div>
+      <div class="num">1</div>
+    </li>
+    <li class="step">
+      <div class="num">2</div>
+      <div class="desc"><strong>2. Send your request</strong><br>Describe features, scope, and any constraints for the learning outcomes.</div>
+    </li>
+    <li class="step">
+      <div class="desc"><strong>3. Receive your deliverables</strong><br>Progress updates and packaged assets within agreed time windows.</div>
+      <div class="num">3</div>
+    </li>
+    <li class="step">
+      <div class="num">4</div>
+      <div class="desc"><strong>4. Iterate</strong><br>Make revisions until the solution meets educational goals.</div>
+    </li>
+  </ol>
+</section>
+
+<footer id="faq">
+  <div class="note">This is a front‑end template preview. Hook up the inputs to your server to enable real uploads.</div>
+  <div class="tiny">© <span id="year"></span>  SoftMart</div>
+ </footer>
+
+<script>
+(function(){
+  const areas = document.querySelectorAll('.drop');
+  const fileLists = {
+    code: document.getElementById('files-code'),
+    docs: document.getElementById('files-docs'),
+    design: document.getElementById('files-design')
+  };
+
+  // Helpers
+  function formatBytes(bytes){
+    if(bytes === 0) return '0 B';
+    const k = 1024, sizes = ['B','KB','MB','GB','TB'];
+    const i = Math.floor(Math.log(bytes)/Math.log(k));
+    return parseFloat((bytes/Math.pow(k,i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function renderList(area, files){
+    const container = fileLists[area];
+    container.innerHTML = '';
+    Array.from(files).forEach(f => {
+      const row = document.createElement('div');
+      row.className = 'file';
+      row.innerHTML = '<div class="name">' + f.name + '</div>' +
+                      '<div class="size">' + formatBytes(f.size || 0) + '</div>';
+      container.appendChild(row);
+    });
+  }
+
+  function save(area, files){
+    try{
+      const data = Array.from(files).map(f => ({name:f.name,size:f.size,type:f.type}));
+      localStorage.setItem('edu_' + area + '_files', JSON.stringify(data));
+    }catch(e){/* ignore quota */}
+  }
+
+  function onFiles(area, files){
+    renderList(area, files);
+    save(area, files);
+  }
+
+  areas.forEach(label => {
+    const input = label.querySelector('input[type=file]');
+    const area = label.getAttribute('data-area');
+
+    // Click to open
+    label.addEventListener('click', () => input.click());
+    input.addEventListener('change', e => onFiles(area, e.target.files));
+
+    // Drag & drop
+    ['dragenter','dragover'].forEach(evt => label.addEventListener(evt, e => {e.preventDefault(); e.stopPropagation(); label.classList.add('drag');}));
+    ['dragleave','drop'].forEach(evt => label.addEventListener(evt, e => {e.preventDefault(); e.stopPropagation(); label.classList.remove('drag');}));
+    label.addEventListener('drop', e => {
+      const files = e.dataTransfer.files;
+      input.files = files;
+      onFiles(area, files);
+    });
+
+    // Restore from localStorage if any
+    try{
+      const cached = localStorage.getItem('edu_' + area + '_files');
+      if(cached){
+        const items = JSON.parse(cached);
+        renderList(area, items);
+      }
+    }catch(e){}
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
+
+
