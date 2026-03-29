@@ -1,7 +1,8 @@
+/* Reset & Base */
 * {margin:0; padding:0; box-sizing:border-box;}
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background:#0b0d1f;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #0f0526 0%, #08021c 100%);
   color:#fff;
   line-height:1.6;
 }
@@ -11,42 +12,71 @@ body {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:1rem 2rem;
-  background: rgba(0,0,0,0.6);
+  padding:15px 20px;
+  background:#121a3a;
+  backdrop-filter:blur(5px);
+  font-size:1.1rem;
 }
-.navbar .logo { font-size:1.5rem; font-weight:bold; }
+.navbar .logo { 
+  font-size:2rem;  
+  font-weight:bold; 
+  color:#fff; 
+}
 .navbar nav a {
-  margin: 0 1rem;
-  color:#ddd;
+  margin:0 1.2rem;
+  color:#ccc;
   text-decoration:none;
+  font-weight:500;
+  transition:color 0.3s;
 }
-.navbar nav a:hover, .navbar nav a.active { color:#fff; }
+.navbar nav a:hover, 
+.navbar nav a.active { color:#1de9b6; }
 
-/* Legal Sections */
+/* Legal Section */
 .legal-section {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
+  max-width:800px;
+  margin:3rem auto;
+  padding:2rem;
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.4);
+  border: 1px solid rgba(29,233,182,0.5); /* teal border */
+  transition: all 0.3s;
 }
+.legal-section:hover {
+  box-shadow:0 0 20px rgba(29,233,182,0.7);
+  transform: translateY(-2px);
+}
+
 .legal-section h2 {
   text-align:center;
-  font-size:1.8rem;
-  margin-bottom:0.5rem;
+  font-size:2rem;
+  margin-bottom:0.8rem;
+  color:#fff;
+  text-shadow:0 0 10px rgba(29,233,182,0.6);
 }
 .legal-section .updated {
   text-align:center;
   margin-bottom:2rem;
-  font-size:0.9rem;
+  font-size:0.95rem;
   color:#ccc;
 }
 .legal-section h3 {
-  margin-top:1.5rem;
-  color:#ff9a9e;
+  margin-top:1.8rem;
+  color:#1de9b6; /* teal accent */
+  font-size:1.2rem;
+  text-shadow:0 0 6px rgba(29,233,182,0.5);
 }
 .legal-section p {
-  margin-top:0.5rem;
-  color:#ddd;
+  margin-top:0.6rem;
+  color:#ccc;
   font-size:0.95rem;
+  line-height:1.7;
+}
+
+/* Add subtle divider between sections */
+.legal-section h3::before {
+  content: "◆ ";
+  color:#1de9b6;
+  font-size:0.9rem;
 }

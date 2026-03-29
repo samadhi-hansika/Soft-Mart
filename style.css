@@ -53,7 +53,7 @@ body {
   color:#ddd;
   transition:color 0.3s;
 }
-.navbar nav a:hover {color:#fff;}
+.navbar nav a:hover, .navbar nav a.active { color:#1de9b6; }
 .navbar .cta {
   padding:0.5rem 1rem;
   border:none;
