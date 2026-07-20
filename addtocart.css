@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #333, #000);
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  margin-right: 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.signin {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #c300ff;
+  background: transparent;
+  color: #c300ff;
+  cursor: pointer;
+}
+
+.cart {
+  font-size: 18px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 60px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.actions button {
+  padding: 14px 22px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.primary {
+  background: #8400ff;
+  color: black;
+}
+
+.secondary {
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* Cards */
+.card-area {
+  position: relative;
+  width: 320px;
+  height: 240px;
+}
+
+.card {
+  position: absolute;
+  width: 300px;
+  height: 180px;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transition: 0.4s;
+}
+
+.gold {
+  background: linear-gradient(135deg, #8d43c9, #bd9235);
+  transform: rotate(-6deg);
+}
+
+.silver {
+  background: linear-gradient(135deg, #ddd, #bdbbbb);
+  color: black;
+  transform: rotate(6deg) translateY(40px);
+}
+
+.chip {
+  width: 40px;
+  height: 30px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  margin-bottom: 40px;
+}
+
+/* Hover */
+.card-area:hover .gold {
+  transform: rotate(-12deg) translateY(-10px);
+}
+
+.card-area:hover .silver {
+  transform: rotate(12deg) translateY(60px);
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #111;
+}
+
+.feature {
+  color: #b700ff;
+}
+
+/* Payments */
+.payments {
+  text-align: center;
+  padding: 60px;
+}
+
+.brands span {
+  margin: 10px;
+  padding: 10px 18px;
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: #ccc;
+}

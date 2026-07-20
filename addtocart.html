@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SoftMart – Payment Blueprint</title>
+  <link rel="stylesheet" href="addtocart.css"/>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">SoftMart</div>
+
+  <nav>
+    <a href="category.html">Categories</a>
+    <a href="homepage.html">Home</a>
+    <a href="support.html">Support</a>
+     <a href="signup.html">
+    <button class="signin">Sign In</button></a>
+  </nav>
+
+  <!-- Cart Count -->
+  <div class="cart">
+    🛒 <span id="cart-count">0</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Your Flexibility,<br>Our Excellence</h1>
+    <p>
+      Manage payments easily. Purchase this application structure.<br>
+      Use Visa, American Express, JCB & UnionPay.
+    </p>
+
+    <div class="actions">
+      <button class="primary" onclick="addToCart()">Add to Cart</button>
+      <a href="payment.html">
+      <button class="secondary">Purchase Now</button></a>
+    </div>
+  </div>
+
+  <div class="card-area">
+    <div class="card gold">
+      <span class="chip"></span>
+      <p class="number">4194 3948 7416 3945</p>
+      <p class="date">08 / 26</p>
+    </div>
+
+    <div class="card silver">
+      <span class="chip"></span>
+      <p class="number">4154 3948 7416 3945</p>
+      <p class="date">08 / 24</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">Easy Developing</div>
+  <div class="feature">Cashback on Transactions</div>
+  <div class="feature">Clear Payment Tracking</div>
+</section>
+
+<section class="payments">
+  <h2>Supported Payments</h2>
+  <div class="brands">
+    <span>VISA</span>
+    <span>AMEX</span>
+    <span>JCB</span>
+    <span>UNIONPAY</span>
+ 
+
+
+  </div>
+</section>
+
+<script src="addtocart.js"></script>
+</body>
+</html>
