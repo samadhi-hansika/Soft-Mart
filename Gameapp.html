@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SoftMart – Game Blueprints</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= BASE THEME ================= */
+:root{
+  --bg:#0b0b10;
+  --panel:#101018;
+  --text:#e9e9ef;
+  --muted:#aaa7bd;
+  --purple:#c95cff;
+  --blue:#6b5bff;
+  --pink:#ff5fa2;
+  --ring:rgba(201,92,255,.45);
+  --grad:linear-gradient(135deg,var(--purple),var(--blue),var(--pink));
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 400px at 50% -200px,rgba(201,92,255,.25),transparent 60%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,Segoe UI;
+}
+
+/* ================= HEADER ================= */
+header{
+  max-width:1200px;
+  margin:auto;
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:700;
+  font-size:22px;
+  background:var(--grad);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* ================= HERO ================= */
+.hero{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.05;
+  margin:0 0 12px;
+}
+
+.hero p{
+  max-width:680px;
+  margin:auto;
+  color:var(--muted);
+}
+
+/* ================= CARD ROW ================= */
+.carousel{
+  margin:60px auto 80px;
+  max-width:1200px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:26px;
+  perspective:1400px;
+}
+
+/* ================= GAME CARD ================= */
+.game-card{
+  width:240px;
+  height:320px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#1b1b29,#0d0d16);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.05);
+  position:relative;
+  overflow:hidden;
+  transform-style:preserve-3d;
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease;
+}
+
+/* Glow edge */
+.game-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:var(--grad);
+  opacity:.35;
+  filter:blur(18px);
+  z-index:0;
+}
+
+/* Card content */
+.game-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+  position:relative;
+}
+
+/* Hover animation */
+.game-card:hover{
+  transform:
+    translateY(-24px)
+    rotateX(8deg)
+    scale(1.05);
+  box-shadow:
+    0 50px 100px rgba(0,0,0,.75),
+    0 0 60px var(--ring);
+}
+
+/* Center card emphasis */
+.game-card.center{
+  transform:scale(1.12);
+  z-index:3;
+}
+
+/* ================= TITLE BADGE ================= */
+.card-info{
+  position:absolute;
+  bottom:16px;
+  left:16px;
+  right:16px;
+  z-index:2;
+}
+
+.card-info h3{
+  margin:0;
+  font-size:18px;
+}
+
+.card-info span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= BUY BUTTON ================= */
+.buy-btn{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  border-radius:12px;
+  border:none;
+  font-weight:600;
+  background:var(--grad);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(201,92,255,.45);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.buy-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 45px rgba(201,92,255,.65);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .carousel{
+    flex-wrap:wrap;
+    perspective:none;
+  }
+  .game-card{
+    transform:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SoftMart</div>
+  <a href="category.html"></a>
+</header>
+
+<section class="hero">
+  <h1>Game Blueprints</h1>
+  <p>Premium game UI kits, layouts, and interaction blueprints. Fully editable. Build your own games faster.</p>
+</section>
+
+<section class="carousel">
+
+  <div class="game-card">
+    <img src="UI fps.jfif" alt="">
+    <div class="card-info">
+      <h3>FPS HUD Kit</h3>
+      <span>$29</span>
+      <button class="buy-btn"><a href="addtocart.html" class="buy-btn" >Add to Cart</button></a>
+    
+    </div>
+  </div>
+
+  <div class="game-card center">
+    <img src="Ant King Challenge System _ Solo Leveling Boss Battle Habit Tracker.jfif" alt="">
+    <div class="card-info">
+      <h3>RPG UI Blueprint</h3>
+      <span>$39</span>
+     <button class="buy-btn"><a href="addtocart.html" class="buy-btn" >Add to Cart</button></a>
+    </div>
+  </div>
+
+  <div class="game-card">
+    <img src="Shooting Game.jfif" alt="">
+    <div class="card-info">
+      <h3>Mobile Game UI</h3>
+      <span>$19</span>
+      <button class="buy-btn"><a href="addtocart.html" class="buy-btn" >Add to Cart</button></a>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
