@@ -72,6 +72,27 @@
     <p>© 2025 SoftMart – Built for developers and creative teams</p>
   </footer>
 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD95BYQkHOwQtBmG3tqBQ5mZ9XegQAc-TI",
+      authDomain: "soft-mart-1fdd7.firebaseapp.com",
+      projectId: "soft-mart-1fdd7",
+      storageBucket: "soft-mart-1fdd7.firebasestorage.app",
+      messagingSenderId: "918088889581",
+      appId: "1:918088889581:web:1f355fc8103906f29d08e4",
+      measurementId: "G-8E97969WFL"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    // Analytics needs a browser environment that supports it (for example, localhost or HTTPS).
+    if (typeof window !== "undefined") {
+      getAnalytics(app);
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
