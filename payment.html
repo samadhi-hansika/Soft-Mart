@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blueprint License Payment</title>
+  <link rel="stylesheet" href="payment.css" />
+</head>
+<body>
+
+<!-- Background Video -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="payment.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- Overlay -->
+<div class="overlay"></div>
+
+<!-- Payment UI -->
+<div class="payment-wrapper">
+
+  <div class="payment-panel">
+    <h2>Purchase Blueprint License</h2>
+    <p class="subtitle">
+      Secure card payment. License will be delivered by email.
+    </p>
+     
+    <div class="card-brands">
+      <span>VISA</span>
+      <span>MasterCard</span>
+      <span>AMEX</span>
+      <span>JCB</span>
+      <span>UnionPay</span>
+    </div>
+
+    <div class="amount">
+      Total: <strong>$49.00</strong>
+    </div>
+  </div>
+
+  <div class="form-panel">
+    <h3>Card Details</h3>
+
+    <input type="email" id="email" placeholder="Email address" />
+    <input type="text" id="name" placeholder="Cardholder name" />
+    <input type="text" id="number" placeholder="Card number" />
+
+    <div class="row">
+      <input type="text" id="expiry" placeholder="MM / YYYY" />
+      <input type="password" id="cvv" placeholder="CVV" />
+    </div>
+
+    <a href="license.html" class="pay-btn">
+  Pay & Get License
+</a>
+
+    <p class="secure">🔒 Encrypted & secure payment</p>
+  </div>
+
+</div>
+
+<script src="payment.js"></script>
+</body>
+</html>

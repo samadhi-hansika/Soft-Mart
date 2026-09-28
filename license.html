@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SoftMart – Payment Success</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= THEME ================= */
+:root{
+  --bg:#bdbdbd;
+  --card:#2f2f2f;
+  --text:#ffffff;
+  --muted:#cfcfcf;
+  --green:#4CAF50;
+  --shadow:0 30px 60px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Arial}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ================= FLIP CARD ================= */
+.flip-wrapper{
+  width:360px;
+  height:380px;
+  perspective:1200px;
+}
+
+.flip-card{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.4,.2,.2,1);
+}
+
+.flip-card.flip{
+  transform:rotateY(180deg);
+}
+
+/* ================= CARD BASE ================= */
+.card{
+  position:absolute;
+  inset:0;
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  text-align:center;
+}
+
+/* ================= SUCCESS SIDE ================= */
+.check{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+  margin-bottom:16px;
+}
+
+.card h2{
+  margin:12px 0 6px;
+}
+
+.card p{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.btn{
+  background:var(--green);
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(76,175,80,.45);
+}
+
+/* ================= LICENSE SIDE ================= */
+.license{
+  transform:rotateY(180deg);
+}
+
+.license-box{
+  width:100%;
+  background:#1f1f1f;
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:18px;
+  text-align:left;
+  font-size:13px;
+}
+
+.license-box strong{
+  color:#9ef5a1;
+}
+
+.download{
+  background:#1db954;
+}
+
+/* ================= CONFETTI ================= */
+.confetti{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.confetti span{
+  position:absolute;
+  width:6px;
+  height:12px;
+  background:#4CAF50;
+  opacity:.8;
+  animation:fall 2.5s linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-40px) rotate(0deg)}
+  to{transform:translateY(420px) rotate(360deg)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="flip-wrapper">
+  <div class="flip-card" id="card">
+
+    <!-- PAYMENT SUCCESS -->
+    <div class="card">
+      <div class="confetti">
+        <span style="left:20%;animation-delay:0s"></span>
+        <span style="left:40%;animation-delay:.4s"></span>
+        <span style="left:60%;animation-delay:.7s"></span>
+        <span style="left:80%;animation-delay:1s"></span>
+      </div>
+
+      <div class="check">✓</div>
+      <h2>Payment Succeeded!</h2>
+      <p>Your transaction was completed successfully.<br>Thank you for choosing SoftMart.</p>
+      <button class="btn" onclick="flipCard()">View License</button>
+    </div>
+
+    <!-- LICENSE -->
+    <div class="card license">
+      <h2>Your License</h2>
+
+      <div class="license-box">
+        <p><strong>Product:</strong> Game UI Blueprint</p>
+        <p><strong>License ID:</strong> SM-GPL-9F21A</p>
+        <p><strong>Issued:</strong> 21 Jan 2026</p>
+        <p><strong>Valid Until:</strong> 21 Jul 2026</p>
+        <p><strong>Usage:</strong> Commercial & Personal</p>
+      </div>
+
+      <button class="btn download">Download Blueprint</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function flipCard(){
+  document.getElementById("card").classList.add("flip");
+}
+</script>
+
+</body>
+</html>
